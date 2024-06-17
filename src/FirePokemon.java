@@ -1,33 +1,37 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class FirePokemon extends Pokemon{
-    private List<String> attacks;
+    private final List<String> attacks;
 
-    public FirePokemon(String name, int temp1, double temp2, String food,String speech) {
-        super(name, temp1,speech, food);
+    public FirePokemon(String name, int level, int healthPoints, String food,String sound) {
+        super(name, level,healthPoints,"fire",sound, food);
+        this.attacks = setAttacks();
     }
 
     //needs to be expounded
+
+    private List<String> setAttacks() {
+        List<String> attacks = new ArrayList<>();
+        attacks.add("inferno");
+        attacks.add("pyroball");
+        attacks.add("firelash");
+        return attacks;
+    }
 
     public List<String> getAttacks() {
         return attacks;
     }
 
-    public void inferno(Pokemon pokemon, Pokemon gymPokemon) {
+    public void inferno(Pokemon attacker, Pokemon defender) {
     }
 
-    public void pyroBall(Pokemon pokemon, Pokemon gymPokemon) {
+    public void pyroBall(Pokemon attacker, Pokemon defender) {
     }
 
-    public void fireLash(Pokemon pokemon, Pokemon gymPokemon) {
+    public void fireLash(Pokemon attacker, Pokemon defender) {
     }
 
-    public void flameThrower(Pokemon pokemon, Pokemon gymPokemon) {
-    }
-
-
-    //needs to be explored
-    public static String get(int attack) {
-        return "";
+    public void flameThrower(Pokemon attacker, Pokemon defender) {
     }
 }

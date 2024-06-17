@@ -205,8 +205,8 @@ public class PokemonGymImpl implements PokemonGym {
                 String attack = fire.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
                     case "inferno" -> fire.inferno(gymPokemon, pokemon);
-                    case "pyroBall" -> fire.pyroBall(gymPokemon, pokemon);
-                    case "fireLash" -> fire.fireLash(gymPokemon, pokemon);
+                    case "pyroball" -> fire.pyroBall(gymPokemon, pokemon);
+                    case "firelash" -> fire.fireLash(gymPokemon, pokemon);
                     default -> fire.flameThrower(gymPokemon, pokemon);
                 }
             }
@@ -215,8 +215,8 @@ public class PokemonGymImpl implements PokemonGym {
                 String attack = water.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
                     case "surf" -> water.surf(gymPokemon, pokemon);
-                    case "hydroPump" -> water.hydroPump(gymPokemon, pokemon);
-                    case "hydroCanon" -> water.hydroCanon(gymPokemon, pokemon);
+                    case "hydropump" -> water.hydroPump(gymPokemon, pokemon);
+                    case "hydrocanon" -> water.hydroCanon(gymPokemon, pokemon);
                     default -> water.rainDance(gymPokemon, pokemon);
                 }
             }
@@ -224,9 +224,9 @@ public class PokemonGymImpl implements PokemonGym {
                 grass = new GrassPokemon(gymPokemon.getName(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
                 String attack = grass.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
-                    case "leafStorm" -> grass.leafStorm(gymPokemon, pokemon);
-                    case "solarBeam" -> grass.solarBeam(gymPokemon, pokemon);
-                    case "leechSeed" -> grass.leechSeed(gymPokemon, pokemon);
+                    case "leafstorm" -> grass.leafStorm(gymPokemon, pokemon);
+                    case "solarbeam" -> grass.solarBeam(gymPokemon, pokemon);
+                    case "leechseed" -> grass.leechSeed(gymPokemon, pokemon);
                     default -> grass.leaveBlade(gymPokemon, pokemon);
                 }
             }
@@ -234,8 +234,8 @@ public class PokemonGymImpl implements PokemonGym {
                 electric = new ElectricPokemon(gymPokemon.getName(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
                 String attack = electric.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
-                    case "thunderPunch" -> electric.thunderPunch(gymPokemon, pokemon);
-                    case "electroBall" -> electric.electroBall(gymPokemon, pokemon);
+                    case "thunderpunch" -> electric.thunderPunch(gymPokemon, pokemon);
+                    case "electroball" -> electric.electroBall(gymPokemon, pokemon);
                     case "thunder" -> electric.thunder(gymPokemon, pokemon);
                     default -> electric.voltTackle(gymPokemon, pokemon);
                 }
