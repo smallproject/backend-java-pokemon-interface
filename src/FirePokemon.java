@@ -9,8 +9,6 @@ public class FirePokemon extends Pokemon{
         this.attacks = setAttacks();
     }
 
-    //needs to be expounded
-
     private List<String> setAttacks() {
         List<String> attacks = new ArrayList<>();
         attacks.add("inferno");

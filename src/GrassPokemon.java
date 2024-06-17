@@ -16,7 +16,7 @@ public class GrassPokemon extends Pokemon{
         attacks.add("leechseed");
         return attacks;
     }
-    //needs to be expounded
+
     public List<String> getAttacks() {
         return attacks;
     }
