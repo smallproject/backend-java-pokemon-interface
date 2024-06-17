@@ -22,19 +22,66 @@ public class ElectricPokemon extends Pokemon{
         return attacks;
     }
 
+    private int attackMultiplier(int attack, Pokemon defender) {
+        attack = switch (defender.getType()) {
+            case "water" -> attack * 2;
+            case "grass" -> (int) (attack * 1.5);
+            case "fire" -> (int) (attack * 1.1);
+            case "electric" -> attack / 2;
+            default -> 15;
+        };
+
+        return attack;
+    }
+
+    private void attackDisplay(Pokemon attacker, Pokemon defender, int damageCount) {
+
+        System.out.println(attacker.getName() + " attacks " + defender.getName()
+                + " with thunderpunch");
+        System.out.println(defender.getName() + " loses " + damageCount + "hp");
+    }
     public void thunderPunch(Pokemon attacker, Pokemon defender) {
+        int healthpoint = defender.getHp();
+        int attack = 15;
+        int damageCount = attackMultiplier(attack, defender);
+
+        defender.setHp(healthpoint - damageCount);
+        attackDisplay(attacker, defender, damageCount);
     }
 
     public void electroBall(Pokemon attacker, Pokemon defender) {
+        int healthpoint = defender.getHp();
+        int attack = 18;
+        int damageCount = attackMultiplier(attack, defender);
 
+        defender.setHp(healthpoint - damageCount);
+        attackDisplay(attacker, defender, damageCount);
     }
 
     public void thunder(Pokemon attacker, Pokemon defender) {
+        int healthpoint = defender.getHp();
+        int attack = 30;
+
         if (defender.getType().equals("electric")) {
-            System.out.println("provide HP boost on " + defender.getName());
+
+            healthpoint = healthpoint + attack;
+            defender.setHp(healthpoint);
+
+            System.out.println("provide HP boost on " + defender.getName() + " +" + attack +"hp");
+        } else {
+            int damageCount = attackMultiplier(attack, defender);
+
+            defender.setHp(healthpoint - damageCount);
+            attackDisplay(attacker, defender, damageCount);
         }
     }
 
     public void voltTackle(Pokemon attacker, Pokemon defender) {
+        int healthpoint = defender.getHp();
+        int attack = 22;
+        int damageCount = attackMultiplier(attack, defender);
+
+        defender.setHp(healthpoint - damageCount);
+        attackDisplay(attacker, defender, damageCount);
     }
 }

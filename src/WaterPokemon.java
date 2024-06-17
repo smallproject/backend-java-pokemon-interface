@@ -16,28 +16,72 @@ public class WaterPokemon extends Pokemon{
         attacks.add("hydrocanon");
         return attacks;
     }
-    //needs to be expounded
     public List<String> getAttacks() {
         return attacks;
     }
 
-    public void surf(Pokemon attacker, Pokemon defender) {
+    private int attackMultiplier(int attack, Pokemon defender) {
+        attack = switch (defender.getType()) {
+            case "fire" -> attack * 2;
+            case "electric" -> (int) (attack * 1.5);
+            case "grass" -> (int) (attack * 1.1);
+            case "water" -> attack / 2;
+            default -> 15;
+        };
 
+        return attack;
+    }
+
+    private void attackDisplay(Pokemon attacker, Pokemon defender, int damageCount) {
+
+        System.out.println(attacker.getName() + " attacks " + defender.getName()
+                + " with thunderpunch");
+        System.out.println(defender.getName() + " loses " + damageCount + "hp");
+    }
+
+    public void surf(Pokemon attacker, Pokemon defender) {
+        int healthpoint = defender.getHp();
+        int attack = 15;
+        int damageCount = attackMultiplier(attack, defender);
+
+        defender.setHp(healthpoint - damageCount);
+        attackDisplay(attacker, defender, damageCount);
     }
 
     public void hydroPump(Pokemon attacker, Pokemon defender) {
+        int healthpoint = defender.getHp();
+        int attack = 15;
+        int damageCount = attackMultiplier(attack, defender);
+
+        defender.setHp(healthpoint - damageCount);
+        attackDisplay(attacker, defender, damageCount);
     }
 
     public void hydroCanon(Pokemon attacker, Pokemon defender) {
+        int healthpoint = defender.getHp();
+        int attack = 15;
+        int damageCount = attackMultiplier(attack, defender);
+
+        defender.setHp(healthpoint - damageCount);
+        attackDisplay(attacker, defender, damageCount);
     }
 
     public void rainDance(Pokemon attacker, Pokemon defender) {
+
+        int healthpoint = defender.getHp();
+        int attack = 15;
+
         if (defender.getType().equals("electric")) {
             System.out.println("Has no effect on " + defender.getName());
         }
 
         if (defender.getType().equals("grass")) {
-            System.out.println("provides HP boost on " + defender.getName());
+            System.out.println("provide HP boost on " + defender.getName() + " +" + attack +"hp");
+        } else {
+            int damageCount = attackMultiplier(attack, defender);
+
+            defender.setHp(healthpoint - damageCount);
+            attackDisplay(attacker, defender, damageCount);
         }
     }
 }
