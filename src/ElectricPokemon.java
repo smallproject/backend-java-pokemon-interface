@@ -33,10 +33,10 @@ public class ElectricPokemon extends Pokemon{
         return attack;
     }
 
-    private void attackDisplay(Pokemon attacker, Pokemon defender, int damageCount) {
+    private void attackDisplay(Pokemon attacker, Pokemon defender, int damageCount, String attackName) {
 
         System.out.println(attacker.getName() + " attacks " + defender.getName()
-                + " with thunderpunch");
+                + " with " + attackName);
         System.out.println(defender.getName() + " loses " + damageCount + "hp");
     }
     public void thunderPunch(Pokemon attacker, Pokemon defender) {
@@ -45,7 +45,7 @@ public class ElectricPokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "thunderpunch");
     }
 
     public void electroBall(Pokemon attacker, Pokemon defender) {
@@ -54,7 +54,7 @@ public class ElectricPokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "electroball");
     }
 
     public void thunder(Pokemon attacker, Pokemon defender) {
@@ -71,7 +71,7 @@ public class ElectricPokemon extends Pokemon{
             int damageCount = attackMultiplier(attack, defender);
 
             defender.setHp(healthpoint - damageCount);
-            attackDisplay(attacker, defender, damageCount);
+            attackDisplay(attacker, defender, damageCount, "thunder");
         }
     }
 
@@ -81,6 +81,6 @@ public class ElectricPokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "volt tackle");
     }
 }

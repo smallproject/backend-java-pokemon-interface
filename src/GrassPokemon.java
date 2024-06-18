@@ -33,10 +33,10 @@ public class GrassPokemon extends Pokemon{
         return attack;
     }
 
-    private void attackDisplay(Pokemon attacker, Pokemon defender, int damageCount) {
+    private void attackDisplay(Pokemon attacker, Pokemon defender, int damageCount, String attackName) {
 
         System.out.println(attacker.getName() + " attacks " + defender.getName()
-                + " with thunderpunch");
+                + " with " + attackName);
         System.out.println(defender.getName() + " loses " + damageCount + "hp");
     }
 
@@ -46,7 +46,7 @@ public class GrassPokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "leafstorm");
     }
 
     public void solarBeam(Pokemon attacker, Pokemon defender) {
@@ -55,7 +55,7 @@ public class GrassPokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "solarbeam");
     }
 
     public void leechSeed(Pokemon attacker, Pokemon defender) {
@@ -64,7 +64,7 @@ public class GrassPokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "leechseed");
     }
 
     public void leaveBlade(Pokemon attacker, Pokemon defender) {
@@ -73,6 +73,6 @@ public class GrassPokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "leechseed");
     }
 }

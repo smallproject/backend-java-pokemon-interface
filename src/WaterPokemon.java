@@ -32,10 +32,10 @@ public class WaterPokemon extends Pokemon{
         return attack;
     }
 
-    private void attackDisplay(Pokemon attacker, Pokemon defender, int damageCount) {
+    private void attackDisplay(Pokemon attacker, Pokemon defender, int damageCount, String attackName) {
 
         System.out.println(attacker.getName() + " attacks " + defender.getName()
-                + " with thunderpunch");
+                + " with " + attackName);
         System.out.println(defender.getName() + " loses " + damageCount + "hp");
     }
 
@@ -45,7 +45,7 @@ public class WaterPokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "surf");
     }
 
     public void hydroPump(Pokemon attacker, Pokemon defender) {
@@ -54,7 +54,7 @@ public class WaterPokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "hydropump");
     }
 
     public void hydroCanon(Pokemon attacker, Pokemon defender) {
@@ -63,7 +63,7 @@ public class WaterPokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "hydrocanon");
     }
 
     public void rainDance(Pokemon attacker, Pokemon defender) {
@@ -81,7 +81,7 @@ public class WaterPokemon extends Pokemon{
             int damageCount = attackMultiplier(attack, defender);
 
             defender.setHp(healthpoint - damageCount);
-            attackDisplay(attacker, defender, damageCount);
+            attackDisplay(attacker, defender, damageCount, "rainDance");
         }
     }
 }

@@ -33,10 +33,10 @@ public class FirePokemon extends Pokemon{
         return attack;
     }
 
-    private void attackDisplay(Pokemon attacker, Pokemon defender, int damageCount) {
+    private void attackDisplay(Pokemon attacker, Pokemon defender, int damageCount, String attackName) {
 
         System.out.println(attacker.getName() + " attacks " + defender.getName()
-                + " with thunderpunch");
+                + " with " + attackName);
         System.out.println(defender.getName() + " loses " + damageCount + "hp");
     }
 
@@ -46,7 +46,7 @@ public class FirePokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "inferno");
     }
 
     public void pyroBall(Pokemon attacker, Pokemon defender) {
@@ -55,7 +55,7 @@ public class FirePokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "pyroball");
     }
 
     public void fireLash(Pokemon attacker, Pokemon defender) {
@@ -64,15 +64,15 @@ public class FirePokemon extends Pokemon{
         int damageCount = attackMultiplier(attack, defender);
 
         defender.setHp(healthpoint - damageCount);
-        attackDisplay(attacker, defender, damageCount);
+        attackDisplay(attacker, defender, damageCount, "firelash");
     }
 
     public void flameThrower(Pokemon attacker, Pokemon defender) {
         int healthpoint = defender.getHp();
         int attack = 30;
-        attack = attackMultiplier(attack, defender);
+        int damageCount = attackMultiplier(attack, defender);
 
-        healthpoint = healthpoint - attack;
-        defender.setHp(healthpoint);
+        defender.setHp(healthpoint - damageCount);
+        attackDisplay(attacker, defender, damageCount, "flamethrower");
     }
 }
