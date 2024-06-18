@@ -20,6 +20,15 @@ public class Main {
 
     private static List<Pokemon> pokemons = Arrays.asList(charizard, blastoise, venusaur, ditto, raichu, gyarados);
 
+    private static final Food apple = new Food("apple", 20);
+    private static final Food banana = new Food("Banana", 20);
+    private static final Food pear = new Food("Pear", 20);
+    private static final Food candy = new Food("Candy", 40);
+    private static final Food meat = new Food("Meat", 50);
+    private static final Food halfRestore = new Food("halfRestore", 50);
+    private static final Food fullRestore = new Food("fullRestore", 100);
+
+    private static List<Food> foods = Arrays.asList(apple, banana, pear, candy, meat,halfRestore, fullRestore);
 
     // Los in de main methode alle foutmeldigen op door (abstracte) klassen met variabelen en methoden te maken (en soms een import).
     // In de main methode en de Main klasse hoef je niks te veranderen.
@@ -28,7 +37,7 @@ public class Main {
         PokemonGymImpl pokemonGym = new PokemonGymImpl(pokemons);
         System.out.println("First player please enter your name: ");
         String userA = speler_A.nextLine();
-        PokemonTrainer player1 = new PokemonTrainer(userA, pokemons);
+        PokemonTrainer player1 = new PokemonTrainer(userA, pokemons, foods);
         System.out.println("To start your game, we have given you 6 Pokemons to use");
         System.out.println("these are the Pokemons you get:");
         pokemonGym.printPokemon(pokemons);
