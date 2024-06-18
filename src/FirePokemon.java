@@ -38,6 +38,7 @@ public class FirePokemon extends Pokemon{
         System.out.println(attacker.getName() + " attacks " + defender.getName()
                 + " with " + attackName);
         System.out.println(defender.getName() + " loses " + damageCount + "hp");
+        System.out.println(defender.getName() + " current is " + defender.getHp() + "hp");
     }
 
     public void inferno(Pokemon attacker, Pokemon defender) {

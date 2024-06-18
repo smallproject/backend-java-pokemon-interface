@@ -37,6 +37,7 @@ public class WaterPokemon extends Pokemon{
         System.out.println(attacker.getName() + " attacks " + defender.getName()
                 + " with " + attackName);
         System.out.println(defender.getName() + " loses " + damageCount + "hp");
+        System.out.println(defender.getName() + " current is " + defender.getHp() + "hp");
     }
 
     public void surf(Pokemon attacker, Pokemon defender) {
