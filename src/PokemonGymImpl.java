@@ -268,7 +268,7 @@ public class PokemonGymImpl implements PokemonGym {
     }
 
     private void feedPokemon(Pokemon pokemon, PokemonTrainer trainer) {
-        String choosenFood = food(trainer.getFoods()).toLowerCase(Locale.ROOT);
+        String choosenFood = foodList(trainer.getFoods()).toLowerCase(Locale.ROOT);
         System.out.println("You have fed "+ pokemon.getName() + " an " +choosenFood);
 
         for (Food food : trainer.getFoods()) {
@@ -279,7 +279,7 @@ public class PokemonGymImpl implements PokemonGym {
         }
     }
 
-    private String food(List<Food> foods) {
+    private String foodList(List<Food> foods) {
         Scanner speler_A = new Scanner(System.in);
         List<String> foodNames = new ArrayList<>();
         for (Food food : foods) {
