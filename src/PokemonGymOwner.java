@@ -5,6 +5,12 @@ public class PokemonGymOwner {
     private String town;
     private List<Pokemon> pokemonList;
 
+    public PokemonGymOwner(String name, String town, List<Pokemon> pokemonList) {
+        this.name = name;
+        this.town = town;
+        this.pokemonList = pokemonList;
+    }
+
     public String getName() {
         return name;
     }
@@ -29,10 +35,5 @@ public class PokemonGymOwner {
         this.pokemonList = pokemonList;
     }
 
-    public PokemonGymOwner(String name, String town, List<Pokemon> pokemonList) {
-        this.name = name;
-        this.town = town;
-        this.pokemonList = pokemonList;
-    }
 
 }

@@ -251,10 +251,13 @@ public class PokemonGymImpl implements PokemonGym {
         Scanner speler_A = new Scanner(System.in);
 
         System.out.println("Do you want to attack or change your pokemon?");
-        System.out.println("Type a for attack or c for change");
+        System.out.println("Do you want to feed your pokemon?");
+        System.out.println("Type a for attack or c for change or f for feed");
         String choice = speler_A.nextLine();
 
-        if (choice.equalsIgnoreCase("a")) {
+        if (choice.equalsIgnoreCase("f")) {
+            feedPokemon(pokemon, trainer);
+        } else if (choice.equalsIgnoreCase("a")) {
             String attack = chooseAttackPlayer(pokemon);
             performAttackPlayer(pokemon, gymPokemon, attack);
         } else {
@@ -262,6 +265,30 @@ public class PokemonGymImpl implements PokemonGym {
             attackOrChange(pokemon, gymPokemon, trainer, gym);
             fightRound(trainer, gym, pokemon, gymPokemon);
         }
+    }
+
+    private void feedPokemon(Pokemon pokemon, PokemonTrainer trainer) {
+        String choosenFood = food(trainer.getFoods()).toLowerCase(Locale.ROOT);
+        System.out.println("You have fed "+ pokemon.getName() + " an " +choosenFood);
+
+        for (Food food : trainer.getFoods()) {
+            if (choosenFood.equals(food.getName().toLowerCase(Locale.ROOT))) {
+                pokemon.setHp(pokemon.getHp() + food.getHealthPoints());
+                System.out.println(food.getHealthPoints() + "Hp restored");
+            }
+        }
+    }
+
+    private String food(List<Food> foods) {
+        Scanner speler_A = new Scanner(System.in);
+        List<String> foodNames = new ArrayList<>();
+        for (Food food : foods) {
+            foodNames.add(food.getName());
+        }
+
+        System.out.println("Choose your food item:");
+        System.out.println(foodNames);
+        return speler_A.nextLine();
     }
 
 }
